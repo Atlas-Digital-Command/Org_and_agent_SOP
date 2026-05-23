@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/Atlas-Digital-Command/Org_and_agent_SOP/discussions
+    about: For open-ended questions, design discussions, or "how do I…" requests, please use Discussions instead of Issues.
+  - name: Security vulnerability
+    url: mailto:security@atlasdigitalusa.com
+    about: Report security issues privately by email. Do NOT open a public issue for vulnerabilities.

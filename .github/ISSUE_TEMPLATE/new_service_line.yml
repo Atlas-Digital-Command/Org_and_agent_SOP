@@ -1,0 +1,57 @@
+name: New service line proposal
+description: Add a new service line under an existing pillar (lighter-touch review).
+title: "[New Service] "
+labels: ["new-service-line", "triage"]
+body:
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: Parent pillar
+      description: Which existing pillar would this service line live under?
+      options:
+        - strategy
+        - branding
+        - website
+        - acquisition
+        - retention
+        - agentic-ai
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Service line name
+      description: kebab-case. E.g., "affiliate-marketing", "video-production".
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Service line scope
+      description: One paragraph. What kinds of SOPs would live here?
+    validations:
+      required: true
+
+  - type: textarea
+    id: distinct
+    attributes:
+      label: Why this isn't already covered
+      description: Confirm this doesn't duplicate an existing service line under any pillar.
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-sops
+    attributes:
+      label: Example SOPs
+      description: List 2-3 example SOPs this service line would generate.
+
+  - type: checkboxes
+    id: commit
+    attributes:
+      label: Will you submit the PR?
+      options:
+        - label: Yes, I'll do the work
+        - label: I'm proposing only

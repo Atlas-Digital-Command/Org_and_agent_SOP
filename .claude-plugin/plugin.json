@@ -1,0 +1,23 @@
+{
+  "name": "sop-agent",
+  "version": "0.1.0",
+  "description": "Agent framework that authors high-quality Standard Operating Procedures, sized to how your team actually operates. Six service pillars, three archetypes, private-overlay pattern. Built by Atlas Digital.",
+  "author": {
+    "name": "Atlas Digital",
+    "url": "https://atlasdigitalusa.com"
+  },
+  "homepage": "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP",
+  "repository": "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP",
+  "license": "Apache-2.0",
+  "keywords": [
+    "sop",
+    "standard-operating-procedure",
+    "agent",
+    "claude-code",
+    "workflow",
+    "documentation",
+    "agency",
+    "operations",
+    "governance"
+  ]
+}

@@ -1,0 +1,63 @@
+name: Feature request or enhancement
+description: Suggest a new capability, improvement, or design refinement.
+title: "[Feature] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an improvement. For *new pillars* or *new service lines*, please use the dedicated templates instead — they have a stricter review checklist.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case or pain point this addresses. Skip the proposed solution for now — focus on the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like this to work? Be as concrete as you can.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you think about, and why did you settle on the proposal above?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Roughly how big a change is this?
+      options:
+        - Tiny (a few lines, one file)
+        - Small (a few files)
+        - Medium (new module or subagent)
+        - Large (new pillar, new subsystem)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: alignment
+    attributes:
+      label: Alignment with project philosophy
+      description: See CONTRIBUTING.md for context on each.
+      options:
+        - label: This respects the "Lean wins by default" principle (doesn't add depth without explicit opt-in)
+        - label: This stays brand-neutral (no organization-specific naming)
+        - label: This uses the overlay pattern instead of hardcoding organization specifics
+        - label: I'm willing to submit a PR for this myself
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues and discussions for similar proposals
+          required: true

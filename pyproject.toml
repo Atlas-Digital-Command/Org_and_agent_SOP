@@ -1,0 +1,125 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sop-agent"
+version = "0.1.0"
+description = "Agent framework that authors high-quality SOPs sized to how your team actually operates. Six service pillars, three archetypes, private-overlay pattern."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Atlas Digital", email = "hello@atlasdigitalusa.com" }
+]
+maintainers = [
+  { name = "Atlas Digital", email = "hello@atlasdigitalusa.com" }
+]
+keywords = [
+  "sop",
+  "standard-operating-procedure",
+  "agent",
+  "claude-code",
+  "claude-agent-sdk",
+  "workflow",
+  "documentation",
+  "agency",
+  "operations",
+  "governance",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business",
+  "Topic :: Software Development :: Documentation",
+]
+
+dependencies = [
+  "claude-agent-sdk>=0.1.0",
+  "pydantic>=2.5",
+  "pyyaml>=6.0",
+  "jinja2>=3.1",
+  "rich>=13.7",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+visual = [
+  "playwright>=1.40",
+  "pillow>=10.0",
+]
+exporters-pdf = [
+  "weasyprint>=60.0",
+]
+exporters-notion = [
+  "notion-client>=2.2",
+]
+dev = [
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.4",
+  "mypy>=1.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP"
+Repository = "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP"
+Issues = "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP/issues"
+Discussions = "https://github.com/Atlas-Digital-Command/Org_and_agent_SOP/discussions"
+
+[project.scripts]
+sop-agent = "sop_agent.__main__:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sop_agent"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/sop_agent",
+  "agents",
+  "agent-sops",
+  "skills",
+  "templates",
+  "governance",
+  "org-map",
+  "examples",
+  ".claude-plugin",
+  "README.md",
+  "LICENSE",
+  "NOTICE",
+  "CHANGELOG.md",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "F",   # pyflakes
+  "I",   # isort
+  "B",   # flake8-bugbear
+  "UP",  # pyupgrade
+  "RUF", # ruff-specific
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers --cov=sop_agent --cov-report=term-missing"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true

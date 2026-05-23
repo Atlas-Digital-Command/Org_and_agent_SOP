@@ -1,0 +1,77 @@
+name: New pillar proposal
+description: Propose a new top-level pillar (peer of strategy, branding, website, acquisition, retention, agentic-ai).
+title: "[New Pillar] "
+labels: ["new-pillar", "design-review", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New top-level pillars are a significant addition. Please complete this template fully — a maintainer will walk through the new-pillar review checklist before approving any code work.
+
+        See `CONTRIBUTING.md` for the full review criteria.
+
+  - type: input
+    id: name
+    attributes:
+      label: Proposed pillar name
+      description: kebab-case. E.g., "operations", "research", "compliance".
+      placeholder: e.g. "operations"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Pillar scope
+      description: What kinds of SOPs would live under this pillar? Where does its work begin and end?
+    validations:
+      required: true
+
+  - type: textarea
+    id: services
+    attributes:
+      label: Proposed service lines
+      description: At least 2. For each, give a one-line description.
+      placeholder: |
+        - vendor-management: SOPs for onboarding, evaluating, and offboarding external vendors.
+        - process-improvement: SOPs for documenting and iterating on internal workflows.
+    validations:
+      required: true
+
+  - type: textarea
+    id: non-overlap
+    attributes:
+      label: Why doesn't this fit under an existing pillar?
+      description: Briefly explain why each existing pillar would be the wrong home for this work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: archetypes
+    attributes:
+      label: How does this pillar's output change across archetypes?
+      description: How would an SOP under this pillar look different for a Lean Operator vs. a Compliance-Forward org?
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-sops
+    attributes:
+      label: Example SOPs you'd ship
+      description: List 3-5 example SOPs that this pillar would generate.
+
+  - type: textarea
+    id: tooling
+    attributes:
+      label: Tools / vendors this pillar references
+      description: Be generic where possible — name categories of tools, not specific vendors.
+      placeholder: e.g. "Project management tools (generic)", "Document storage (generic)"
+
+  - type: checkboxes
+    id: commit
+    attributes:
+      label: Are you willing to do the work?
+      options:
+        - label: I will submit the PR myself if this is approved
+        - label: I'm willing to co-author with a maintainer
+        - label: I'm only proposing — someone else would need to build it

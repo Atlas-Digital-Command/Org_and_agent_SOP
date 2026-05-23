@@ -1,0 +1,96 @@
+# --- SOP Agent: private overlays must never be committed -----------------
+# The overlay pattern keeps your organization's real governance, org-map,
+# tool inventory, and brand voice OUT of this public repo. Configure via
+# the --overlay flag, $SOP_AGENT_OVERLAY env var, or ~/.sop-agent/overlay/.
+overlay/
+overlays/
+.overlay/
+.sop-agent/
+
+# Per-tenant governance content (use examples/ for sanitized samples instead)
+governance/*.md
+!governance/README.md
+!governance/SCHEMA.md
+!governance/.gitkeep
+
+# Per-tenant org-map content
+org-map/*.yaml
+org-map/*.md
+!org-map/README.md
+!org-map/SCHEMA.md
+!org-map/.gitkeep
+
+# Generated SOP artifacts (these belong in the user's output destination)
+.sop-output/
+generated-sops/
+*.generated.md
+*.generated.pdf
+*.generated.html
+
+# Screenshot artifacts from the Visual Renderer (Phase 3)
+screenshots/
+.playwright-cache/
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual envs
+.venv/
+venv/
+env/
+ENV/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# --- Editors / OS ---------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Secrets --------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json

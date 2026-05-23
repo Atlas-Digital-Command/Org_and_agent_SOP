@@ -1,0 +1,20 @@
+{
+  "name": "sop-agent",
+  "owner": {
+    "name": "Atlas Digital",
+    "url": "https://github.com/Atlas-Digital-Command"
+  },
+  "metadata": {
+    "description": "An agent framework that authors high-quality Standard Operating Procedures, sized to how your team actually operates.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "sop-agent",
+      "source": ".",
+      "description": "Conductor + pillar specialists + governance validator + QA evaluator. Generates SOPs across six service pillars in three archetypes (Lean / Coordinated / Compliance-Forward). Loads your private overlay for organization-specific governance and role mapping.",
+      "category": "operations",
+      "tags": ["sop", "operations", "workflow", "documentation", "agency"]
+    }
+  ]
+}
