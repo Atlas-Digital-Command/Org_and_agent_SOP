@@ -1,0 +1,94 @@
+# Brightline Studios — Role definitions
+#
+# Six roles, no formal RACI (Lean archetype). The Org Mapper assigns ownership
+# per SOP step but does not produce a full R/A/C/I matrix.
+
+roles:
+  founder:
+    title: "Founder / Strategy Lead"
+    seniority: principal
+    department: leadership
+    headcount: 1
+    reports_to: null
+    responsibilities:
+      - "Final approver for out-of-scope client work"
+      - "Top-tier client relationships (3 largest accounts)"
+      - "Quarterly strategic reviews"
+      - "Pricing + scope decisions"
+    can_own:
+      - strategy
+    cannot_own:
+      - production-execution  # never put the founder on routine production steps
+
+  seo-lead:
+    title: "SEO Lead"
+    seniority: senior
+    department: acquisition
+    headcount: 1
+    reports_to: founder
+    responsibilities:
+      - "Owns SEO deliverables across all clients"
+      - "Technical + content SEO execution"
+      - "Monthly client SEO reporting"
+      - "Mentors paid-media-specialist on overlap (SEO-PPC keyword strategy)"
+    can_own:
+      - acquisition.seo
+      - acquisition.content-marketing
+
+  paid-media-specialist:
+    title: "Paid Media Specialist"
+    seniority: mid
+    department: acquisition
+    headcount: 1
+    reports_to: founder
+    responsibilities:
+      - "Google Ads + Meta Ads campaign management across all clients"
+      - "Creative iteration cadence"
+      - "Monthly client paid-media reporting"
+    can_own:
+      - acquisition.paid-media
+
+  retention-specialist:
+    title: "Retention Specialist (Email + SMS)"
+    seniority: mid
+    department: retention
+    headcount: 1
+    reports_to: founder
+    responsibilities:
+      - "Klaviyo + Customer.io campaign + flow management"
+      - "Subscriber list hygiene"
+      - "Monthly retention reporting"
+    can_own:
+      - retention.email-marketing
+      - retention.sms-marketing
+
+  account-manager:
+    title: "Account Manager"
+    seniority: mid
+    department: client-success
+    headcount: 1
+    reports_to: founder
+    responsibilities:
+      - "Client communication + status reporting"
+      - "Project coordination across SEO / paid / retention"
+      - "Scope monitoring + flagging out-of-scope requests"
+    can_own:
+      - strategy  # for tactical client check-ins, not strategic decisions
+    cannot_own:
+      - acquisition.seo  # AM coordinates SEO work but doesn't execute it
+      - acquisition.paid-media
+      - retention.email-marketing
+
+  designer-developer:
+    title: "Designer-Developer (Hybrid)"
+    seniority: mid
+    department: website
+    headcount: 1
+    reports_to: founder
+    responsibilities:
+      - "Web design + dev work when in scope (occasional)"
+      - "Creative production support for paid media"
+      - "Landing page builds for new client campaigns"
+    can_own:
+      - website.web-design-development
+      - website.conversion-rate-optimization
