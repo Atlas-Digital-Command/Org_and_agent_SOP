@@ -52,7 +52,11 @@ Read these files from `overlay_dir`:
 - `governance/org-profile.md` — confirms archetype, service activation
 - `governance/design-principles.md` — section requirements, length preferences
 - `governance/tool-inventory.md` — which tool categories the org has (you reference categories generically, but you should note gaps so the user's draft surfaces them)
+- `governance/segmentation-tags.md` — **if present**, every task you draft MUST carry exactly one tag from this vocabulary; `[COND]`-style conditional tags MUST name their trigger
+- `governance/automation-inventory.md` — **if present**, check it before drafting any manual task; work covered by a registered automation becomes a *verification* task referencing the automation, never a manual execution task
 - `org-map/roles.yaml` — informs your seniority recommendations per step
+
+Also check `overlay_dir/playbooks/` — if the overlay ships a private playbook for this service line (e.g., `playbooks/seo-phases.md`), it **overrides** the framework's generic playbook. Draft from the overlay playbook's structure, tags, and standards; use the generic playbook only to fill gaps the private one doesn't cover.
 
 You do *not* need to assign specific roles or tools — that's downstream. You need to know what's available so your draft is realistic.
 

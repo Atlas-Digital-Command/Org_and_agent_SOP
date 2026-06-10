@@ -39,6 +39,7 @@ You should default to these without being asked:
 | `/sop-new <description>` | `agent-sops/new-sop.sop.md` |
 | `/sop-onboard` | `agent-sops/onboard-org.sop.md` |
 | `/sop-audit <path>` | `agent-sops/audit-sop.sop.md` |
+| `/sop-ingest <source>` | `agent-sops/ingest-knowledge.sop.md` |
 | `/sop-list` | List pillars and service lines (built-in) |
 | `/sop-overlay` | Show resolved overlay state (built-in) |
 

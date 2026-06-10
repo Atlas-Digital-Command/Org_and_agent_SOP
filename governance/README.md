@@ -29,6 +29,8 @@ Five files, each with a single, clear purpose:
 | `brand-voice.md` | Tone, terminology, vocabulary your organization uses |
 | `tool-inventory.md` | The tools your team actually owns, organized by category |
 | `org-profile.md` | High-level snapshot — size, archetype, services, client mix |
+| `segmentation-tags.md` *(optional)* | Client-segment tag vocabulary — lets one SOP serve many client profiles via per-task tags |
+| `automation-inventory.md` *(optional)* | Automations that replace manual work — the agent checks this before drafting any manual task |
 
 See [SCHEMA.md](./SCHEMA.md) for the full structure of each file.
 

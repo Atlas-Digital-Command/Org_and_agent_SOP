@@ -65,6 +65,25 @@ Cap voice findings at the top 5 most impactful issues. Long lists of minor voice
 - **KPIs measurable?** Each KPI should reference a quantifiable metric. "Improve SEO" is not measurable; "Lift organic traffic to /pricing by 15% QoQ" is. Vague KPIs are `medium` findings.
 - **Definition of Done present?** Required for `coordinated` and `compliance-forward` archetypes — missing = `high` finding.
 
+### 5b. Check segmentation-tag coverage (if `segmentation-tags.md` exists)
+
+When the overlay declares a segmentation-tag vocabulary:
+
+- **Every task tagged?** Each task in the draft missing a tag → `high` severity finding.
+- **Tags from the declared vocabulary only?** A tag not defined in `segmentation-tags.md` → `medium` finding with suggested fix "add the tag to the vocabulary or use an existing one."
+- **Conditional tags name their trigger?** A `[COND]`-style tag with no stated trigger → `medium` finding.
+
+Skip this dimension entirely (and list it in `skipped_dimensions`) when the overlay has no `segmentation-tags.md`.
+
+### 5c. Check automation conflicts (if `automation-inventory.md` exists)
+
+When the overlay declares an automation inventory:
+
+- **Manual tasks duplicating automations?** A draft task instructing manual execution of work a registered automation covers → `high` severity finding, with the automation named and the suggested fix "convert to a verification task referencing {automation}."
+- **Automations referenced without checkpoints?** A draft step that relies on an automation but includes no human verification → `low` finding.
+
+Skip this dimension entirely when the overlay has no `automation-inventory.md`.
+
 ### 6. Check archetype-required additions
 
 For `compliance-forward` archetype, also verify:
@@ -88,7 +107,7 @@ Return a single JSON object with this exact shape, and nothing else outside the 
 {
   "findings": [
     {
-      "dimension": "structure" | "brand-voice" | "measurement" | "archetype",
+      "dimension": "structure" | "brand-voice" | "measurement" | "archetype" | "segmentation" | "automation",
       "severity": "critical" | "high" | "medium" | "low",
       "location": "L42-L48",
       "description": "Missing required 'Definition of Done' section",

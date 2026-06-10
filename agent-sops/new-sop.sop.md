@@ -44,6 +44,9 @@ Resolve the active overlay using the loader's precedence chain and load its cont
   - `brand-voice.md`
   - `tool-inventory.md`
   - `org-profile.md`
+  - `segmentation-tags.md` (optional — when present, every generated task carries exactly one tag from its vocabulary)
+  - `automation-inventory.md` (optional — when present, no manual task may duplicate a registered automation)
+- You MUST check `overlay_dir/playbooks/` for private service-line playbooks; when one exists for the classified service line, it overrides the framework's generic playbook
 - You MUST read every file present under `org-map/`:
   - `roles.yaml`
   - `team-structure.md`

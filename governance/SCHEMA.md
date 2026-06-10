@@ -2,6 +2,8 @@
 
 This document specifies the structure of every file under a governance overlay. The framework reads these files; deviating from the schema means the agent may not pick up your preferences correctly.
 
+Five files are core (`design-principles`, `measurement-principles`, `brand-voice`, `tool-inventory`, `org-profile`). Two are optional but powerful for multi-client organizations: `segmentation-tags.md` and `automation-inventory.md` — both documented at the end of this file.
+
 ---
 
 ## `design-principles.md`
@@ -178,3 +180,53 @@ Organize by category. Use generic categories so this file remains portable.
 ## Notes for the agent
 [Any free-form context the agent should always know about your organization.]
 ```
+
+---
+
+## `segmentation-tags.md` (optional)
+
+For organizations whose SOPs serve many clients/contexts with different profiles (agencies especially). When present, **every task in every generated SOP carries exactly one tag**, and the Governance Validator treats untagged tasks as `high` severity findings.
+
+```markdown
+# Segmentation Tags
+
+## Tag vocabulary
+
+| Tag | Meaning | Applies when |
+|-----|---------|--------------|
+| `[ALL]` | Every client — no exceptions | [description] |
+| `[SEGMENT_NAME]` | [client segment definition] | [when tasks get this tag] |
+| `[COND]` | Conditional — apply based on findings | [trigger discipline] |
+
+## Rules for the agent
+- Every generated SOP task MUST carry exactly one tag
+- `[COND]` tasks MUST name their trigger
+- New tags get added here first, never invented inline in an SOP
+```
+
+Recommended baseline vocabulary for agencies: `[ALL]`, `[LOCAL]`, `[ECOM]`, `[COND]`, `[INDUST]`, plus platform tags like `[WP/SF]`. Define what fits your client mix.
+
+---
+
+## `automation-inventory.md` (optional)
+
+For organizations with automations that replace manual work. When present, the Pillar Specialist **checks this file before drafting any manual task** — generating a manual task that duplicates a registered automation is a `high` severity governance finding.
+
+```markdown
+# Automation Inventory
+
+## Active automations
+
+### [Automation name]
+- **What it does:** [description]
+- **Replaces:** [the manual work this eliminates]
+- **Human checkpoint:** [who verifies it, at what cadence]
+- **SOP rule:** [how SOPs should reference this — verification tasks, not execution tasks]
+
+## Rules for the agent
+- Check before you draft: manual tasks duplicating an automation are governance findings
+- Automations get QA checkpoints in SOPs, not blind trust
+- New automations get registered here first; affected SOPs then get flagged for regeneration
+```
+
+The core insight: **SOPs for automated work are verification workflows, not execution workflows.** An org with a strong automation stack should see its SOPs shrink, not grow.
